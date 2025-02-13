@@ -1,14 +1,6 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  StyleSheet,
+import {View, Text, TextInput, TouchableOpacity, FlatList, Image, KeyboardAvoidingView, Platform,
+ StyleSheet,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -51,9 +43,9 @@ const ChatScreen = ({ route, navigation }) => {
         id: Date.now().toString(),
         text: inputMessage,
         sender: 'me',
-        timestamp: new Date().toLocaleTimeString([], { 
-          hour: '2-digit', 
-          minute: '2-digit' 
+        timestamp: new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit'
         }),
       };
       setMessages([...messages, newMessage]);
@@ -83,29 +75,29 @@ const ChatScreen = ({ route, navigation }) => {
   );
 
   return (
-    <KeyboardAvoidingView 
+    <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : null}
     >
       {/* Header */}
       <View style={styles.header}>
-    <TouchableOpacity onPress={() => navigation.goBack()}>
-      <Icon name="arrow-back" size={24} color="#000" />
-    </TouchableOpacity>
-    <View style={styles.headerInfo}>
-      <Image 
-        source={avatar} 
-        style={styles.headerAvatar} 
-      />
-      <View>
-        <Text style={styles.headerName}>{username || 'Chat'}</Text>
-        <Text style={styles.headerStatus}>En ligne</Text>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Icon name="arrow-back" size={24} color="#000" />
+        </TouchableOpacity>
+        <View style={styles.headerInfo}>
+          <Image
+            source={avatar}
+            style={styles.headerAvatar}
+          />
+          <View>
+            <Text style={styles.headerName}>{username || 'Chat'}</Text>
+            <Text style={styles.headerStatus}>En ligne</Text>
+          </View>
+        </View>
+        <TouchableOpacity>
+          <Icon name="ellipsis-vertical" size={24} color="#000" />
+        </TouchableOpacity>
       </View>
-    </View>
-    <TouchableOpacity>
-      <Icon name="ellipsis-vertical" size={24} color="#000" />
-    </TouchableOpacity>
-  </View>
 
       {/* Messages List */}
       <FlatList
@@ -128,7 +120,7 @@ const ChatScreen = ({ route, navigation }) => {
           placeholder="Message..."
           multiline
         />
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.sendButton}
           onPress={sendMessage}
         >
